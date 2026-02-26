@@ -11,22 +11,22 @@ import (
 )
 
 type (
-	pgsqlDriver struct{}
+	postgresqlDriver struct{}
 
-	pgsqlConnection struct {
+	postgresqlConnection struct {
 		instance *data.Instance
 		db       *sql.DB
 		actives  int64
 	}
 
-	pgsqlDialect struct{}
+	postgresqlDialect struct{}
 )
 
-func (d *pgsqlDriver) Connect(inst *data.Instance) (data.Connection, error) {
-	return &pgsqlConnection{instance: inst}, nil
+func (d *postgresqlDriver) Connect(inst *data.Instance) (data.Connection, error) {
+	return &postgresqlConnection{instance: inst}, nil
 }
 
-func (c *pgsqlConnection) Open() error {
+func (c *postgresqlConnection) Open() error {
 	dsn := strings.TrimSpace(c.instance.Config.Url)
 	if dsn == "" {
 		if v, ok := c.instance.Setting["dsn"].(string); ok {
@@ -48,7 +48,7 @@ func (c *pgsqlConnection) Open() error {
 	return nil
 }
 
-func (c *pgsqlConnection) Close() error {
+func (c *postgresqlConnection) Close() error {
 	if c.db == nil {
 		return nil
 	}
@@ -57,24 +57,24 @@ func (c *pgsqlConnection) Close() error {
 	return err
 }
 
-func (c *pgsqlConnection) Health() data.Health {
+func (c *postgresqlConnection) Health() data.Health {
 	return data.Health{Workload: atomic.LoadInt64(&c.actives)}
 }
 
-func (c *pgsqlConnection) DB() *sql.DB {
+func (c *postgresqlConnection) DB() *sql.DB {
 	return c.db
 }
 
-func (c *pgsqlConnection) Dialect() data.Dialect {
-	return pgsqlDialect{}
+func (c *postgresqlConnection) Dialect() data.Dialect {
+	return postgresqlDialect{}
 }
 
-func (pgsqlDialect) Name() string { return "pgsql" }
-func (pgsqlDialect) Quote(s string) string {
+func (postgresqlDialect) Name() string { return "pgsql" }
+func (postgresqlDialect) Quote(s string) string {
 	s = strings.TrimSpace(s)
 	s = strings.ReplaceAll(s, `"`, ``)
 	return `"` + s + `"`
 }
-func (pgsqlDialect) Placeholder(n int) string { return fmt.Sprintf("$%d", n) }
-func (pgsqlDialect) SupportsILike() bool      { return true }
-func (pgsqlDialect) SupportsReturning() bool  { return true }
+func (postgresqlDialect) Placeholder(n int) string { return fmt.Sprintf("$%d", n) }
+func (postgresqlDialect) SupportsILike() bool      { return true }
+func (postgresqlDialect) SupportsReturning() bool  { return true }

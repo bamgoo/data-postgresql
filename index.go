@@ -6,10 +6,12 @@ import (
 )
 
 func Driver() data.Driver {
-	return &pgsqlDriver{}
+	return &postgresqlDriver{}
 }
 
 func init() {
-	bamgoo.Register("pgsql", Driver())
-	bamgoo.Register("postgres", Driver())
+	drv := Driver()
+	bamgoo.Register("pgsql", drv)
+	bamgoo.Register("postgres", drv)
+	bamgoo.Register("postgresql", drv)
 }
