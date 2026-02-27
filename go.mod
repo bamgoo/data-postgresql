@@ -1,4 +1,4 @@
-module github.com/bamgoo/data-pgsql
+module github.com/bamgoo/data-postgresql
 
 go 1.25.3
 
