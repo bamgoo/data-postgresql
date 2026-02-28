@@ -8,5 +8,11 @@ require (
 	github.com/lib/pq v1.10.9
 )
 
+require (
+	github.com/bamgoo/base v0.0.1 // indirect
+	github.com/pelletier/go-toml/v2 v2.2.2 // indirect
+)
+
 replace github.com/bamgoo/bamgoo => ../bamgoo
+
 replace github.com/bamgoo/data => ../data
