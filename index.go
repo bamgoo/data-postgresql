@@ -1,8 +1,8 @@
 package data_pgsql
 
 import (
-	"github.com/bamgoo/bamgoo"
-	"github.com/bamgoo/data"
+	"github.com/infrago/infra"
+	"github.com/infrago/data"
 )
 
 func Driver() data.Driver {
@@ -11,7 +11,7 @@ func Driver() data.Driver {
 
 func init() {
 	drv := Driver()
-	bamgoo.Register("pgsql", drv)
-	bamgoo.Register("postgres", drv)
-	bamgoo.Register("postgresql", drv)
+	infra.Register("pgsql", drv)
+	infra.Register("postgres", drv)
+	infra.Register("postgresql", drv)
 }

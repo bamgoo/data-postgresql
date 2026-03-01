@@ -1,2 +1,2 @@
 # data-pgsql
-bamgoo postgresql data driver.
+infrago postgresql data driver.
