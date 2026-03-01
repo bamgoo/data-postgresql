@@ -13,6 +13,6 @@ require (
 	github.com/pelletier/go-toml/v2 v2.2.2 // indirect
 )
 
-replace github.com/infrago/infra => ../infra
+replace github.com/infrago/infra => ../bamgoo
 
 replace github.com/infrago/data => ../data
