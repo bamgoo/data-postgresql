@@ -1,6 +1,6 @@
-# data-postgresql
+# data-postgres
 
-`data-postgresql` 是 `github.com/infrago/data` 的**postgresql 驱动**。
+`data-postgres` 是 `github.com/infrago/data` 的**postgresql 驱动**。
 
 ## 包定位
 
@@ -12,7 +12,7 @@
 ```go
 import (
     _ "github.com/infrago/data"
-    _ "github.com/infrago/data-postgresql"
+    _ "github.com/infrago/data-postgres"
 )
 ```
 

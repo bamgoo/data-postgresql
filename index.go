@@ -1,12 +1,12 @@
-package data_pgsql
+package data_postgres
 
 import (
-	"github.com/infrago/infra"
 	"github.com/infrago/data"
+	"github.com/infrago/infra"
 )
 
 func Driver() data.Driver {
-	return &postgresqlDriver{}
+	return &postgresDriver{}
 }
 
 func init() {

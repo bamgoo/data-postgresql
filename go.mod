@@ -1,4 +1,4 @@
-module github.com/infrago/data-postgresql
+module github.com/infrago/data-postgres
 
 go 1.25.3
 
