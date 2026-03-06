@@ -8,7 +8,10 @@ require (
 	github.com/lib/pq v1.10.9
 )
 
+replace github.com/infrago/data => ../data
+
 require (
 	github.com/infrago/base v0.11.1 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.2 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
